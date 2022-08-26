@@ -13,5 +13,5 @@
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true
   },
-  "exclude": ["lib", "node_modules", "lib", "coverage", "__tests__"]
+  "include": ["src/**/*", "__tests__/**/*"]
 }
