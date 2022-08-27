@@ -32,12 +32,12 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # - name: Inject NPM token into .npmrc
-      #   working-directory: .
-      #   run: |
-      #     sed -i.bak "s/\${PAT_TOKEN}/${PAT_TOKEN}/g" .npmrc
-      #   env:
-      #     PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+      - name: Inject NPM token into .npmrc
+        working-directory: .
+        run: |
+          sed -i.bak "s/\${PAT_TOKEN}/${PAT_TOKEN}/g" .npmrc
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
 
       - name: Install Dependencies
         run: yarn ci
