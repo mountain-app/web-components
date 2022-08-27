@@ -32,26 +32,17 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Inject NPM token into .npmrc
-        working-directory: .
-        run: |
-          sed -i.bak "s/\${PAT_TOKEN}/${PAT_TOKEN}/g" .npmrc
-        env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+      # - name: Inject NPM token into .npmrc
+      #   working-directory: .
+      #   run: |
+      #     sed -i.bak "s/\${PAT_TOKEN}/${PAT_TOKEN}/g" .npmrc
+      #   env:
+      #     PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
 
       - name: Install Dependencies
         run: yarn ci
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Ensure to have this set up under GitHub secrets
-
-      # - name: Create .npmrc
-      #   run: |
-      #     cat << EOF > ".npmrc"
-      #       @mountain-app:registry=https://npm.pkg.github.com/
-      #       //npm.pkg.github.com/:_authToken=$NPM_TOKEN
-      #     EOF
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.PAT_TOKEN }}
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
@@ -63,5 +54,5 @@ jobs:
           publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
