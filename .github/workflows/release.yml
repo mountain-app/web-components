@@ -20,9 +20,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+          registry-url: https://npm.pkg.github.com/
 
       - name: Install Dependencies
         run: yarn ci
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
@@ -34,4 +37,4 @@ jobs:
           publish: yarn changeset:release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: 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
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
