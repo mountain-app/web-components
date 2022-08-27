@@ -11,7 +11,7 @@
   ],
   "types": "lib/index.d.ts",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/mountain-app"
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "clean": "npx rimraf lib",
@@ -21,7 +21,9 @@
     "build-storybook": "build-storybook",
     "test": "jest",
     "test:type-check": "tsc --noEmit",
-    "lint": "eslint '**/*.{js,ts,tsx,}' --max-warnings=0"
+    "lint": "eslint '**/*.{js,ts,tsx,}' --max-warnings=0",
+    "changeset:release": "yarn build && changeset publish --registry=https://npm.pkg.github.com",
+    "changeset:version": "changeset version && yarn ci"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
