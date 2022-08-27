@@ -38,7 +38,7 @@ jobs:
             //registry.npmjs.org/:_authToken=$PAT_TOKEN
           EOF
         env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+          PAT_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install Dependencies
         run: yarn ci
