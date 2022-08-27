@@ -28,9 +28,9 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
           scope: '@mountain-app'
-          token: ${{ secrets.PAT_TOKEN }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        #   token: ${{ secrets.PAT_TOKEN }}
+        # env:
+        #   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Creating .npmrc
         run: |
@@ -42,8 +42,8 @@ jobs:
 
       - name: Install Dependencies
         run: yarn ci
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Ensure to have this set up under GitHub secrets
+        # env:
+        #   NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Ensure to have this set up under GitHub secrets
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
@@ -56,4 +56,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
           NPM_TOKEN: ${{ secrets.PAT_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
