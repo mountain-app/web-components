@@ -1,5 +1,11 @@
 # @mountain-app/web-components
 
+## 1.0.3
+
+### Patch Changes
+
+- [`7f44727`](https://github.com/mountain-app/web-components/commit/7f44727397d922a65be67fdfe2b8e8c2655dcaab) Thanks [@ocintnaf](https://github.com/ocintnaf)! - testtt
+
 ## 1.0.2
 
 ### Patch Changes
