@@ -6,16 +6,27 @@
   "license": "MIT",
   "main": "lib/browser.cjs.js",
   "module": "lib/browser.esm.js",
+  "files": [
+    "lib"
+  ],
   "types": "lib/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/mountain-app"
+  },
   "scripts": {
     "clean": "npx rimraf lib",
-    "build": "yarn clean && rollup -c",
+    "ci": "yarn install --immutable --immutable-cache --check-cache",
+    "build": "yarn clean && rollup -c && npx tsc --project tsconfig.build.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest"
+    "test": "jest",
+    "test:type-check": "tsc --noEmit",
+    "lint": "eslint '**/*.{js,ts,tsx,}' --max-warnings=0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
+    "@changesets/changelog-github": "0.4.6",
+    "@changesets/cli": "2.24.3",
     "@rollup/plugin-commonjs": "22.0.2",
     "@rollup/plugin-node-resolve": "13.3.0",
     "@storybook/addon-actions": "^6.5.10",
