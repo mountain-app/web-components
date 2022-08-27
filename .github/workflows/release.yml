@@ -5,53 +5,16 @@ on:
     branches:
       - main
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
-  version:
-    name: version
-    runs-on: ubuntu-latest
-    outputs:
-      changes: ${{ steps.version.outputs.changes }}
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Version command
-        id: version
-        run: echo ::set-output name=changes::$(npx changeset version 2>&1 | grep -q 'No unreleased changesets found' && echo 'false' || echo 'true')
-
-      - name: Push changes
-        if: steps.version.outputs.changes == 'true'
-        run: |
-          git config user.email "niccolo.fant@gmail.com"
-          git config user.name "mountain-app"
-          git add -A
-          git commit -m "Version packages" || echo "No changes to commit"
-          git push
-
   release:
     name: Release
     runs-on: ubuntu-latest
 
-    needs: version
-
-    # permissions:
-    #   packages: write
-
-    if: always() && needs.version.outputs.changes == 'false'
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -70,8 +33,8 @@ jobs:
         with:
           title: 'chore: version packages'
           commit: 'chore: version packages'
-          version: yarn changeset:version
-          publish: yarn changeset:release
+          version: yarn version-packages
+          publish: yarn release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

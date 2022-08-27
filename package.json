@@ -22,8 +22,8 @@
     "test": "jest",
     "test:type-check": "tsc --noEmit",
     "lint": "eslint '**/*.{js,ts,tsx,}' --max-warnings=0",
-    "changeset:release": "yarn build && changeset publish --registry=https://npm.pkg.github.com",
-    "changeset:version": "changeset version && yarn ci"
+    "release": "yarn build && changeset publish",
+    "version-packages": "changeset version"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
