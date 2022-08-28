@@ -1,5 +1,11 @@
 # @mountain-app/web-components
 
+## 1.0.4
+
+### Patch Changes
+
+- porco
+
 ## 1.0.3
 
 ### Patch Changes
