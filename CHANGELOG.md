@@ -1,5 +1,11 @@
 # @mountain-app/web-components
 
+## 1.0.6
+
+### Patch Changes
+
+- [`ac3adcf`](https://github.com/mountain-app/web-components/commit/ac3adcf3e1efb0a090b198f1ba9fe0a6ac54e51a) Thanks [@ocintnaf](https://github.com/ocintnaf)! - change background-color
+
 ## 1.0.5
 
 ### Patch Changes
