@@ -1,5 +1,11 @@
 # @mountain-app/web-components
 
+## 1.1.0
+
+### Minor Changes
+
+- [`5f86b9f`](https://github.com/mountain-app/web-components/commit/5f86b9f19e2834d84f4f96b19bdbb48fee9ade08) Thanks [@ocintnaf](https://github.com/ocintnaf)! - Remove `styled-components` from peer deps
+
 ## 1.0.7
 
 ### Patch Changes
