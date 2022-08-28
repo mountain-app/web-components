@@ -1,5 +1,11 @@
 # @mountain-app/web-components
 
+## 1.1.2
+
+### Patch Changes
+
+- [`933ea02`](https://github.com/mountain-app/web-components/commit/933ea02572639743573c845d2a841869d34b7cd2) Thanks [@ocintnaf](https://github.com/ocintnaf)! - Implement `Spinner` component
+
 ## 1.1.1
 
 ### Patch Changes
