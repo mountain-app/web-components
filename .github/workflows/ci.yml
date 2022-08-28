@@ -43,8 +43,15 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Test
+      - name: Unit Test
         run: yarn test --coverage
+
+      - name: Visual test (Chromatic)
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          autoAcceptChanges: github.ref == 'refs/heads/main'
+          onlyChanged: true
 
       - name: Type check
         run: yarn test:type-check
