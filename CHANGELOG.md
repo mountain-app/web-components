@@ -1,5 +1,11 @@
 # @mountain-app/web-components
 
+## 1.0.7
+
+### Patch Changes
+
+- [`39e4bc5`](https://github.com/mountain-app/web-components/commit/39e4bc596f4bc3f6849ca80e227ac22e0450a6e6) Thanks [@ocintnaf](https://github.com/ocintnaf)! - change font-size
+
 ## 1.0.6
 
 ### Patch Changes
