@@ -67,30 +67,42 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+permissions:
+  packages: write
+  contents: read
+
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.PAT_TOKEN }}
+
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Setup Node.js 16
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-          # registry-url: https://npm.pkg.github.com/
-          # scope: '@mountain-app'
+          registry-url: https://npm.pkg.github.com/
+          scope: '@mountain-app'
           # token: ${{ secrets.PAT_TOKEN }}
 
       - name: Install Dependencies
-        run: yarn
+        run: yarn ci
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
-          # This expects you to have a script called release which does a build for your packages and calls changeset publish
+          title: 'chore: version packages'
+          commit: 'chore: version packages'
+          version: yarn version-packages
           publish: yarn release
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
