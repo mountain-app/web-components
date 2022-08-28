@@ -1,5 +1,11 @@
 # @mountain-app/web-components
 
+## 1.0.5
+
+### Patch Changes
+
+- [`e228599`](https://github.com/mountain-app/web-components/commit/e228599864c205b83bcdef954b2309483df40062) Thanks [@ocintnaf](https://github.com/ocintnaf)! - change button color
+
 ## 1.0.4
 
 ### Patch Changes
