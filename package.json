@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
+    "ci": "yarn install --immutable --immutable-cache --check-cache",
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
