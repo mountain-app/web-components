@@ -1,5 +1,0 @@
----
-'web-components': minor
----
-
-test
