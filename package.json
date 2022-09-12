@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "1.2.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -21,7 +21,8 @@
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "release": "yarn build && changeset publish"
+    "release": "yarn build && changeset publish",
+    "version-packages": "changeset version"
   },
   "peerDependencies": {
     "react": ">=16"
