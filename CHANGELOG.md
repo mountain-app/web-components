@@ -1,5 +1,11 @@
 # web-components
 
+## 1.3.1
+
+### Patch Changes
+
+- 3543728: test
+
 ## 1.3.0
 
 ### Minor Changes
