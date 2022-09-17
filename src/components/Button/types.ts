@@ -27,7 +27,7 @@ export interface ButtonProps extends BaseButtonProps {
   children?: ReactNode;
 }
 
-export interface IconButtonProps extends ButtonProps {
+export interface IconButtonProps extends BaseButtonProps {
   icon: ReactNode; // @TODO: use icon type
 }
 

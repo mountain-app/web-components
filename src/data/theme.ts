@@ -5,7 +5,7 @@ module.exports = {
       black: '#1b1f23',
       white: '#ffffff',
       brand: {
-        primary: '#2a9d8f',
+        primary: '#ff8500',
         accent: '#276er1',
       },
       gray: [

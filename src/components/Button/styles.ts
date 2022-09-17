@@ -1,12 +1,20 @@
-import { ButtonSize, ButtonVariant } from './types';
 import { twMerge } from 'tailwind-merge';
+import { ButtonSize, ButtonVariant } from './types';
 
-const sizeToStyles: {
+const buttonSizeToStyles: {
   [key in ButtonSize]: string;
 } = {
   small: 'h-32 px-12 text-sm gap-6',
   medium: 'h-40 px-12 text-sm gap-6',
   large: 'h-48 px-16 text-base gap-8',
+};
+
+const iconSizeToStyles: {
+  [key in ButtonSize]: string;
+} = {
+  small: 'h-32 w-32 text-sm',
+  medium: 'h-40 w-40 text-sm',
+  large: 'h-48 w-48 text-base',
 };
 
 export const variantToDisabledStyles: {
@@ -79,6 +87,7 @@ export const variantToStyles: {
 export const getButtonStyles = (
   variant: ButtonVariant,
   size: ButtonSize,
+  expanded?: boolean,
   sx?: string
 ) => {
   const baseStyles = `
@@ -90,7 +99,28 @@ export const getButtonStyles = (
 
   const disabledStyles = `disabled:cursor-not-allowed ${variantToDisabledStyles[variant]}`;
   const variantStyles = variantToStyles[variant];
-  const sizeStyles = sizeToStyles[size];
+  const sizeStyles = buttonSizeToStyles[size];
+  const expandedStyles = expanded ? 'w-full' : '';
 
-  return twMerge(baseStyles, disabledStyles, variantStyles, sizeStyles, sx);
+  return twMerge(
+    baseStyles,
+    disabledStyles,
+    variantStyles,
+    sizeStyles,
+    expandedStyles,
+    sx
+  );
+};
+
+export const getIconButtonStyles = (
+  variant: ButtonVariant,
+  size: ButtonSize,
+  sx?: string
+) => {
+  const baseStyles = 'rounded-full';
+
+  const buttonStyles = getButtonStyles(variant, size, false, sx);
+  const sizeStyles = iconSizeToStyles[size];
+
+  return twMerge(buttonStyles, baseStyles, sizeStyles);
 };
