@@ -30,5 +30,8 @@ jobs:
       - name: Test
         run: yarn test --ci --coverage --maxWorkers=2
 
-      - name: Build
-        run: yarn build
+      - name: Deploy to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true
