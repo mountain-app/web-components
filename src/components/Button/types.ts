@@ -1,4 +1,5 @@
 import { HTMLAttributes, ReactNode } from 'react';
+import { Icon } from '../../icons';
 import { StyledComponentProps } from '../types';
 
 export type ButtonVariant =
@@ -21,14 +22,14 @@ interface BaseButtonProps
 }
 
 export interface ButtonProps extends BaseButtonProps {
-  leadingIcon?: ReactNode;
-  trailingIcon?: ReactNode;
+  leadingIcon?: Icon;
+  trailingIcon?: Icon;
   expanded?: boolean;
   children?: ReactNode;
 }
 
 export interface IconButtonProps extends BaseButtonProps {
-  icon: ReactNode; // @TODO: use icon type
+  icon: Icon; // @TODO: use icon type
 }
 
 export interface LinkButtonProps extends BaseButtonProps {}

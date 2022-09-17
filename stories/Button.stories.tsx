@@ -12,15 +12,18 @@ const meta: Meta = {
       },
     },
   },
-  parameters: {
-    controls: { expanded: true },
-  },
 };
 
 export default meta;
 
-const Template: Story = (args) => <Button {...args}>Button</Button>;
+const DefaultButton: Story = (args) => <Button {...args}>Default</Button>;
+export const Default = DefaultButton.bind({
+  variant: 'secondary-light',
+});
 
-export const Default = Template.bind({});
-
-Default.args = {};
+const PillButton: Story = (args) => (
+  <Button {...args} sx="rounded-full">
+    Pill
+  </Button>
+);
+export const Pill = PillButton.bind({});

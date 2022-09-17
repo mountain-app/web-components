@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { getIconButtonStyles } from './styles';
 import { IconButtonProps } from './types';
+import { Symbol } from '../..';
 
 export const IconButton: FunctionComponent<IconButtonProps> = ({
   variant = 'primary',
@@ -10,10 +11,11 @@ export const IconButton: FunctionComponent<IconButtonProps> = ({
   ...rest
 }) => {
   const styles = getIconButtonStyles(variant, size, sx);
+  const iconSize = size === 'small' ? '16' : size === 'medium' ? '20' : '24';
 
   return (
     <button className={styles} {...rest}>
-      {icon}
+      <Symbol path={icon} size={iconSize} />
     </button>
   );
 };

@@ -4,17 +4,17 @@ import { ButtonSize, ButtonVariant } from './types';
 const buttonSizeToStyles: {
   [key in ButtonSize]: string;
 } = {
-  small: 'h-32 px-12 text-sm gap-6',
-  medium: 'h-40 px-12 text-sm gap-6',
-  large: 'h-48 px-16 text-base gap-8',
+  small: 'h-32 px-12 text-sm space-x-6',
+  medium: 'h-40 px-12 text-sm space-x-6',
+  large: 'h-48 px-16 text-base space-x-8',
 };
 
-const iconSizeToStyles: {
+const iconButtonSizeToStyles: {
   [key in ButtonSize]: string;
 } = {
-  small: 'h-32 w-32 text-sm',
-  medium: 'h-40 w-40 text-sm',
-  large: 'h-48 w-48 text-base',
+  small: 'h-32 w-32',
+  medium: 'h-40 w-40',
+  large: 'h-48 w-48',
 };
 
 export const variantToDisabledStyles: {
@@ -24,7 +24,6 @@ export const variantToDisabledStyles: {
     disabled:bg-gray-3
     disabled:border-gray-3
     disabled:hover:opacity-100
-    disabled:active:scale-100
     `,
   'secondary-light': `
     disabled:bg-gray-1
@@ -55,7 +54,6 @@ export const variantToStyles: {
     border-brand-primary
     text-white
     hover:opacity-90
-    active:scale-95
     `,
   'secondary-light': `
     bg-white 
@@ -93,8 +91,10 @@ export const getButtonStyles = (
   const baseStyles = `
     border
     rounded-lg
-    font-medium
     duration-150
+    flex
+    items-center
+    justify-center
   `;
 
   const disabledStyles = `disabled:cursor-not-allowed ${variantToDisabledStyles[variant]}`;
@@ -117,10 +117,11 @@ export const getIconButtonStyles = (
   size: ButtonSize,
   sx?: string
 ) => {
-  const baseStyles = 'rounded-full';
+  const baseStyles = 'rounded-full flex items-center justify-center';
 
-  const buttonStyles = getButtonStyles(variant, size, false, sx);
-  const sizeStyles = iconSizeToStyles[size];
+  const disabledStyles = `disabled:cursor-not-allowed ${variantToDisabledStyles[variant]}`;
+  const variantStyles = variantToStyles[variant];
+  const sizeStyles = iconButtonSizeToStyles[size];
 
-  return twMerge(buttonStyles, baseStyles, sizeStyles);
+  return twMerge(baseStyles, disabledStyles, variantStyles, sizeStyles, sx);
 };
