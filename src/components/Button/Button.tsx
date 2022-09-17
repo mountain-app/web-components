@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { ButtonProps } from './types';
 import { getButtonStyles } from './styles';
-import { Symbol } from '../..';
+import { Symbol } from '../Symbol';
 
 export const Button: FunctionComponent<ButtonProps> = ({
   variant = 'secondary-light',

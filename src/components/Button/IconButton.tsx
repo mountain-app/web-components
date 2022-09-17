@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { getIconButtonStyles } from './styles';
 import { IconButtonProps } from './types';
-import { Symbol } from '../..';
+import { Symbol } from '../Symbol';
 
 export const IconButton: FunctionComponent<IconButtonProps> = ({
   variant = 'primary',
