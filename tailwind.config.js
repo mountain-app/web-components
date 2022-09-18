@@ -7,7 +7,7 @@ const theme = {
       black: '#1b1f23',
       white: '#ffffff',
       brand: {
-        primary: '#ff8500',
+        primary: '#52b69a',
         accent: '#276er1',
       },
       gray: [
@@ -103,7 +103,6 @@ const theme = {
 module.exports = {
   mode: 'jit',
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './stories/*'],
   presets: [theme],
   theme: {},
   plugins: [],

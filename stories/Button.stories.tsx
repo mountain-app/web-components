@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Button } from '../src';
+import { Button, Icon } from '../src';
 
 const meta: Meta = {
   title: 'Components/Button',
@@ -10,6 +10,14 @@ const meta: Meta = {
       control: {
         type: 'text',
       },
+    },
+    leadingIcon: {
+      options: Object.values(Icon),
+      control: { type: 'select' },
+    },
+    trailingIcon: {
+      options: Object.values(Icon),
+      control: { type: 'select' },
     },
   },
 };

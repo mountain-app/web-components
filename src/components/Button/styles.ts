@@ -117,7 +117,7 @@ export const getIconButtonStyles = (
   size: ButtonSize,
   sx?: string
 ) => {
-  const baseStyles = 'rounded-full flex items-center justify-center';
+  const baseStyles = 'rounded-full flex items-center justify-center border';
 
   const disabledStyles = `disabled:cursor-not-allowed ${variantToDisabledStyles[variant]}`;
   const variantStyles = variantToStyles[variant];
@@ -125,3 +125,6 @@ export const getIconButtonStyles = (
 
   return twMerge(baseStyles, disabledStyles, variantStyles, sizeStyles, sx);
 };
+
+export const getIconSize = (size: ButtonSize) =>
+  size === 'small' ? '16' : size === 'medium' ? '20' : '24';

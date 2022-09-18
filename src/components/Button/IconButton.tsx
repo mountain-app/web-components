@@ -1,21 +1,22 @@
-import React, { FunctionComponent } from 'react';
-import { getIconButtonStyles } from './styles';
+import React, { forwardRef } from 'react';
+import { getIconButtonStyles, getIconSize } from './styles';
 import { IconButtonProps } from './types';
 import { Symbol } from '../Symbol';
 
-export const IconButton: FunctionComponent<IconButtonProps> = ({
-  variant = 'primary',
-  size = 'medium',
-  icon,
-  sx,
-  ...rest
-}) => {
-  const styles = getIconButtonStyles(variant, size, sx);
-  const iconSize = size === 'small' ? '16' : size === 'medium' ? '20' : '24';
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  (
+    { variant = 'primary', size = 'medium', icon, sx, ...rest },
+    forwardedRef
+  ) => {
+    const styles = getIconButtonStyles(variant, size, sx);
+    const iconSize = getIconSize(size);
 
-  return (
-    <button className={styles} {...rest}>
-      <Symbol path={icon} size={iconSize} />
-    </button>
-  );
-};
+    return (
+      <button ref={forwardedRef} className={styles} {...rest}>
+        <Symbol path={icon} size={iconSize} />
+      </button>
+    );
+  }
+);
+
+IconButton.displayName = 'IconButton';
