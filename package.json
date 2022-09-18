@@ -16,7 +16,7 @@
   "scripts": {
     "start": "tsdx watch",
     "ci": "yarn install --immutable --immutable-cache --check-cache",
-    "build": "tsdx build",
+    "build": "tsdx build && yarn build-tailwind",
     "test": "tsdx test --passWithNoTests",
     "lint": "eslint '**/*.{js,ts,tsx}' --max-warnings=0",
     "prepare": "tsdx build",
@@ -24,6 +24,7 @@
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "build-tailwind": "NODE_ENV=production npx tailwindcss -o ./dist/tailwind.css --minify",
     "release": "yarn build && changeset publish",
     "version-packages": "changeset version"
   },
