@@ -1,5 +1,11 @@
 # web-components
 
+## 1.3.4
+
+### Patch Changes
+
+- 9d72371: Include css in build output
+
 ## 1.3.3
 
 ### Patch Changes
