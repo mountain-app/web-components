@@ -1,5 +1,11 @@
 # web-components
 
+## 1.3.3
+
+### Patch Changes
+
+- c1280d5: Update Button component. Create IconButton and Symbol components
+
 ## 1.3.2
 
 ### Patch Changes
