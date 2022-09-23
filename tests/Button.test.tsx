@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { Button } from '../src';
 
@@ -7,8 +7,8 @@ expect.extend(toHaveNoViolations);
 
 describe('Button', () => {
   it('should render a <button>', () => {
-    const container = render(<Button>Default</Button>);
-    const button = container.getByRole('button');
+    render(<Button>Default</Button>);
+    const button = screen.getByRole('button');
 
     expect(button.textContent).toEqual('Default');
   });
@@ -21,10 +21,11 @@ describe('Button', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('should preserve the  "onClick" prop', () => {
+  it('should preserve the "onClick" prop', () => {
     const onClick = jest.fn();
-    const container = render(<Button onClick={onClick}>Noop</Button>);
-    const button = container.getByRole('button');
+
+    render(<Button onClick={onClick}>Noop</Button>);
+    const button = screen.getByRole('button');
 
     fireEvent.click(button);
 
