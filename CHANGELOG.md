@@ -1,5 +1,11 @@
 # web-components
 
+## 1.3.6
+
+### Patch Changes
+
+- 0278483: add box
+
 ## 1.3.5
 
 ### Patch Changes
